@@ -20,12 +20,11 @@
 		"prepublish": "safe-publish-latest",
 		"pretest": "npm run --silent lint",
 		"test": "npm run --silent tests-only",
-		"posttest": "npm run --silent security",
+		"posttest": "npx aud",
 		"tests-only": "npm run --silent test:stock && npm run --silent test:staging",
 		"test:stock": "node test",
 		"test:staging": "node --harmony --es-staging test",
-		"lint": "eslint *.js",
-		"security": "nsp check"
+		"lint": "eslint *.js"
 	},
 	"repository": {
 		"type": "git",
@@ -42,7 +41,6 @@
 	"dependencies": {},
 	"devDependencies": {
 		"tape": "^4.6.0",
-		"nsp": "^2.6.1",
 		"safe-publish-latest": "^1.1.0",
 		"eslint": "^3.5.0",
 		"@ljharb/eslint-config": "^8.0.0"
