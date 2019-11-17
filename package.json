@@ -27,7 +27,9 @@
 		"tests-only": "npm run --silent test:stock && npm run --silent test:staging",
 		"test:stock": "node test",
 		"test:staging": "node --harmony --es-staging test",
-		"lint": "eslint *.js"
+		"lint": "eslint *.js",
+		"version": "auto-changelog && git add CHANGELOG.md",
+		"postversion": "auto-changelog && git add CHANGELOG.md && git commit --no-edit --amend && git tag -f \"v$(node -e \"console.log(require('./package.json').version)\")\""
 	},
 	"repository": {
 		"type": "git",
@@ -44,6 +46,7 @@
 	"dependencies": {},
 	"devDependencies": {
 		"@ljharb/eslint-config": "^13.1.1",
+		"auto-changelog": "^1.16.2",
 		"eslint": "^5.16.0",
 		"safe-publish-latest": "^1.1.2",
 		"tape": "^4.10.2"
@@ -68,5 +71,12 @@
 	},
 	"engines": {
 		"node": ">= 0.4"
+	},
+	"auto-changelog": {
+		"output": "CHANGELOG.md",
+		"template": "keepachangelog",
+		"unreleased": false,
+		"commitLimit": false,
+		"backfillLimit": false
 	}
 }
