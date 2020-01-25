@@ -45,7 +45,7 @@
 	],
 	"dependencies": {},
 	"devDependencies": {
-		"@ljharb/eslint-config": "^15.0.1",
+		"@ljharb/eslint-config": "^16.0.0",
 		"auto-changelog": "^1.16.2",
 		"eslint": "^6.6.0",
 		"safe-publish-latest": "^1.1.4",
