@@ -32,7 +32,7 @@
 	},
 	"repository": {
 		"type": "git",
-		"url": "git://github.com/ljharb/has-template-literals.git"
+		"url": "git://github.com/inspect-js/has-template-literals.git"
 	},
 	"keywords": [
 		"template literal",
