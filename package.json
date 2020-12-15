@@ -21,13 +21,12 @@
 	"main": "index.js",
 	"scripts": {
 		"prepublish": "safe-publish-latest",
-		"pretest": "npm run --silent lint",
-		"test": "npm run --silent tests-only",
-		"posttest": "npx aud --production",
-		"tests-only": "npm run --silent test:stock && npm run --silent test:staging",
-		"test:stock": "node test",
-		"test:staging": "node --harmony --es-staging test",
-		"lint": "eslint *.js",
+		"pretest": "npm run lint",
+		"test": "npm run tests-only && npm run test:harmony",
+		"posttest": "aud --production",
+		"tests-only": "nyc tape 'test/**/*.js'",
+		"test:harmony": "nyc node --harmony --es-staging test",
+		"lint": "eslint --ext=js,mjs .",
 		"version": "auto-changelog && git add CHANGELOG.md",
 		"postversion": "auto-changelog && git add CHANGELOG.md && git commit --no-edit --amend && git tag -f \"v$(node -e \"console.log(require('./package.json').version)\")\""
 	},
@@ -49,6 +48,7 @@
 		"aud": "^1.1.1",
 		"auto-changelog": "^2.0.0",
 		"eslint": "^6.8.0",
+		"nyc": "^10.3.2",
 		"safe-publish-latest": "^1.1.4",
 		"tape": "^5.0.0-next.5"
 	},

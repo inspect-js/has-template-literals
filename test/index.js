@@ -13,7 +13,7 @@ test('template literal support', function (t) {
 	var yes = hasTemplateLiterals();
 	t.equal(typeof yes, 'boolean', 'export returns a boolean');
 
-	var makeTemplateLiteral = function () { Function('`a template literal`'); };
+	var makeTemplateLiteral = function () { Function('`a template literal`'); }; // eslint-disable-line no-new-func
 
 	t.test('no template literal support', { skip: yes }, function (st) {
 		st.equal(yes, false, 'returns false');
